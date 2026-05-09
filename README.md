@@ -1,36 +1,69 @@
-# Cooking Skills
+# GitHub Pages Recipe Catalog
 
-AI agent skills for cooking: quick, practical, healthy recipes from ingredients, photos, and weeknight constraints.
+A beautiful, mobile-first recipe catalog for your selected cooking recipes.
 
-## Skills
+## Features
 
-| Skill | What it does |
-|---|---|
-| [quick-healthy-recipes](skills/quick-healthy-recipes/) | Generates exactly 3 simple, fast, healthy recipe options from food photos, ingredient lists, or cravings. |
+- 🍽️ **Beautiful interface** — Clean, modern design
+- 🔍 **Search and filter** — Find recipes easily
+- 🔄 **Filter by criteria** — vegetarian, quick, side dishes
+- ⚡ **Sort options** — by time, health, or title
+- 📱 **Mobile-first** — perfect for kitchen use
+- 📋 **Step-by-step guidance** — clear visual instructions
+- 💾 **Persistent catalog** — recipes stay saved
 
-## Install
+## How It Works
 
-Install with agent-skill-manager:
+1. **Recipe data** in `data/selected-recipes.json`
+2. **GitHub Actions** rebuilds the site when recipes change
+3. **GitHub Pages** deploys the static site
 
-```bash
-asm install github:luongnv89/cooking-skills
+## Adding Recipes
+
+Edit `data/selected-recipes.json` and commit — the site auto-updates!
+
+### Recipe Schema
+
+```json
+{
+  "id": "recipe-slug",
+  "title": "Recipe Title",
+  "description": "Short description",
+  "time": { "prep": 10, "cook": 20, "total": 30 },
+  "servings": 2,
+  "ingredients": [
+    { "name": "Ingredient", "quantity": "Amount" }
+  ],
+  "steps": [
+    { "order": 1, "title": "Step", "description": "What to do" }
+  ],
+  "tags": ["vegetarian", "quick"],
+  "metadata": {
+    "difficulty": "easy",
+    "health": { "protein": 1, "veg": "high", "carb": "medium" }
+  }
+}
 ```
 
-Or install a specific skill:
+## Structure
 
-```bash
-asm install github:luongnv89/cooking-skills --skill quick-healthy-recipes
+```
+data/
+  selected-recipes.json
+.github/workflows/
+  deploy.yml
+index.html
+README.md
 ```
 
-## Repo structure
+## Deployment
 
-```text
-skills/
-  quick-healthy-recipes/
-    SKILL.md
-    docs/README.md
-    evals/evals.json
-```
+The site automatically deploys to GitHub Pages when pushing to `main` and updating recipes.
+
+To enable:
+1. Go to **Settings → Pages**
+2. Select **GitHub Actions** as Source
+3. Save
 
 ## License
 

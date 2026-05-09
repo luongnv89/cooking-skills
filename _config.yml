@@ -1,0 +1,7 @@
+{
+  "name": "cooking-skills catalog",
+  "version": "1.0.0",
+  "description": "GitHub Pages recipe catalog for selected recipes",
+  "default_page": "index.html",
+  "pages_build_outcome": "success"
+}

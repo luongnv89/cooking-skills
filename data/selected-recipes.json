@@ -1,0 +1,65 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-05-09T14:00:00Z",
+  "recipes": [
+    {
+      "id": "quick-chard-saute",
+      "title": "Sautéed Swiss Chard with Garlic and Lemon",
+      "description": "A simple, fast, healthy side dish that highlights fresh chard with garlic, lemon, and olive oil.",
+      "time": { "prep": 10, "cook": 10, "total": 20 },
+      "servings": 2,
+      "ingredients": [
+        { "name": "Swiss chard", "quantity": "500 g (1 large bunch)", "optional": false },
+        { "name": "Olive oil", "quantity": "3 tablespoons", "optional": false },
+        { "name": "Garlic", "quantity": "4 cloves, sliced", "optional": false },
+        { "name": "Red pepper flakes", "quantity": "1/2 teaspoon (optional)", "optional": true },
+        { "name": "Lemon", "quantity": "1/2 juice + zest", "optional": false },
+        { "name": "Salt and pepper", "quantity": "To taste", "optional": false }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Prep and separate",
+          "description": "Separate chard leaves from stems. Chop stems into 1/2-inch pieces. Roughly chop leaves.",
+          "visual": "Stems on one pile, leaves in another"
+        },
+        {
+          "order": 2,
+          "title": "Sauté stems",
+          "description": "Heat olive oil in a large pot. Add stems and cook 5-6 minutes until glossy and softened.",
+          "visual": "Stems should be glossy and slightly tender"
+        },
+        {
+          "order": 3,
+          "title": "Add garlic",
+          "description": "Add sliced garlic and red pepper flakes. Cook 1 minute until fragrant.",
+          "visual": "Garlic should be lightly golden, not browned"
+        },
+        {
+          "order": 4,
+          "title": "Wilt leaves",
+          "description": "Add chopped leaves in batches, stirring until wilted. Add 1/4 cup water, cover, cook 5-7 minutes.",
+          "visual": "Leaves should be bright green and tender"
+        },
+        {
+          "order": 5,
+          "title": "Finish",
+          "description": "Stir in lemon juice and zest. Season with salt and pepper.",
+          "visual": "Glistening, vibrant green with a fresh aroma"
+        }
+      ],
+      "tags": [ "vegetarian", "vegan", "quick", "side-dish", "chard" ],
+      "metadata": {
+        "difficulty": "easy",
+        "meal_type": "side",
+        "cuisine": "french",
+        "health": { "protein": 0, "veg": "high", "carb": "low" },
+        "visual_guide": {
+          "prep_shot": "Chopped stems and leaves arranged separately",
+          "mid_cook": "Leaves wilting in the pot with garlic sizzling",
+          "finished": "Final dish in a white bowl with lemon zest sprinkled"
+        }
+      }
+    }
+  ]
+}
