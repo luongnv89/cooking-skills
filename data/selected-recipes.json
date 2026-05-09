@@ -1,6 +1,6 @@
 {
-  "version": "1.1.0",
-  "generated_at": "2026-05-09T16:30:00Z",
+  "version": "1.2.0",
+  "generated_at": "2026-05-09T16:55:00Z",
   "recipes": [
     {
       "id": "quick-chard-saute",
@@ -118,6 +118,117 @@
           "caption": "Prep checkpoint: wash well, then cut stems and leaves separately."
         }
       ]
+    },
+    {
+      "id": "apple-yogurt-skillet",
+      "slug": "apple-yogurt-skillet",
+      "path": "recipes/apple-yogurt-skillet/",
+      "selected_at": "2026-05-09T16:55:00Z",
+      "title": "Warm Cinnamon Apples with Yogurt and Walnuts",
+      "description": "A quick, healthy apple dessert-or-breakfast bowl with tender sautéed apples, creamy yogurt, and crunchy walnuts.",
+      "time": {
+        "prep": 5,
+        "cook": 10,
+        "total": 15
+      },
+      "servings": 2,
+      "photos": [
+        {
+          "type": "hero",
+          "src": "assets/recipes/apple-yogurt-skillet/fresh-apples.jpg",
+          "alt": "Fresh red, yellow, and green apples in a clear plastic bag",
+          "caption": "Fresh mixed apples: slice thinly so they soften quickly in the pan."
+        },
+        {
+          "type": "prep",
+          "src": "assets/recipes/apple-yogurt-skillet/fresh-apples.jpg",
+          "alt": "Apples ready to wash, core, and slice for a quick skillet recipe",
+          "caption": "Prep checkpoint: wash, core, and cut into thin wedges; peeling is optional."
+        }
+      ],
+      "ingredients": [
+        {
+          "name": "Apples",
+          "quantity": "3 medium / about 450 g, cored and sliced",
+          "optional": false
+        },
+        {
+          "name": "Olive oil or butter",
+          "quantity": "1 tablespoon",
+          "optional": false
+        },
+        {
+          "name": "Cinnamon",
+          "quantity": "1 teaspoon",
+          "optional": false
+        },
+        {
+          "name": "Lemon juice",
+          "quantity": "1 tablespoon",
+          "optional": false
+        },
+        {
+          "name": "Plain Greek yogurt",
+          "quantity": "250 g",
+          "optional": false
+        },
+        {
+          "name": "Walnuts or almonds",
+          "quantity": "30 g, chopped",
+          "optional": false
+        },
+        {
+          "name": "Honey",
+          "quantity": "1 teaspoon, optional",
+          "optional": true
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Slice the apples",
+          "description": "Wash and core the apples, then cut them into thin wedges so they cook fast.",
+          "visual": "Thin slices with red and green skins still visible; no large chunks."
+        },
+        {
+          "order": 2,
+          "title": "Warm and soften",
+          "description": "Heat oil or butter in a skillet over medium heat. Add apples, cinnamon, and lemon juice. Cook 8–10 minutes, stirring often.",
+          "visual": "Apples should look glossy, lightly browned at the edges, and bend easily."
+        },
+        {
+          "order": 3,
+          "title": "Build the bowl",
+          "description": "Spoon yogurt into two bowls, top with warm apples, nuts, and a little honey if wanted.",
+          "visual": "Cool white yogurt with warm cinnamon apples piled on top and crunchy nuts scattered over."
+        }
+      ],
+      "tags": [
+        "vegetarian",
+        "quick",
+        "apple",
+        "breakfast",
+        "dessert",
+        "snack"
+      ],
+      "metadata": {
+        "difficulty": "easy",
+        "meal_type": "breakfast",
+        "cuisine": "weeknight",
+        "main_ingredient": "Apples",
+        "protein_type": "yogurt",
+        "vegetarian": true,
+        "health": {
+          "protein": 2,
+          "veg": "medium",
+          "carb": "medium"
+        },
+        "visual_guide": {
+          "prep_shot": "Washed apples cored and sliced into thin wedges, skins on",
+          "mid_cook": "Apple slices glossy and softening in a skillet with cinnamon",
+          "finished": "Warm cinnamon apples over yogurt with walnuts and a small honey drizzle"
+        }
+      }
     }
   ]
 }
