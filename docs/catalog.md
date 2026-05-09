@@ -1,124 +1,102 @@
-# Cooking Skills Catalog
+# Catalog Authoring Guide
 
-A beautiful, mobile-first recipe catalog hosted on GitHub Pages. Track your selected recipes, follow clear visual instructions, and cook with confidence.
+This document explains how the GitHub Pages cooking catalog works and how to add selected recipes with photos.
 
-## Features
+## What the site includes
 
-- 🍽️ **Beautiful interface** — Clean, modern design optimized for cooking
-- 🔍 **Search and filter** — Find recipes by name, ingredients, or tags
-- 🔄 **Filter by criteria** — vegetarian, quick meals, side dishes
-- ⚡ **Sort options** — by time, health, or alphabetical order
-- 📱 **Mobile-first** — perfect layout for phone use in the kitchen
-- 📋 **Step-by-step guidance** — clear visual instructions for each recipe
-- 💾 **Persistent catalog** — your recipes stay saved and accessible
+- `index.html` — searchable and filterable recipe catalog
+- `recipes/<recipe-id>/index.html` — dedicated recipe path for each selected recipe
+- `assets/css/catalog.css` — shared design system
+- `assets/js/catalog.js` — shared catalog and recipe rendering logic
+- `assets/recipes/<recipe-id>/` — recipe photos
+- `data/selected-recipes.json` — structured recipe data
 
-## Demo
+## Dedicated recipe paths
 
-You can try the catalog at: https://luongnv89.github.io/cooking-skills/
+Every recipe should have a stable path:
 
-## How It Works
+```text
+recipes/<recipe-id>/index.html
+```
 
-1. **Recipe data** is stored in `data/selected-recipes.json`
-2. **GitHub Actions** automatically rebuilds the site when recipe data changes
-3. **GitHub Pages** deploys the static site for public access
+Example:
 
-## Adding Recipes
+```text
+recipes/quick-chard-saute/index.html
+```
 
-To add a new recipe:
+The page should set:
 
-1. Edit `data/selected-recipes.json`
-2. Add your recipe following the schema below
-3. Commit and push — the site will auto-update!
+```html
+<body data-mode="recipe" data-recipe-id="quick-chard-saute" data-base-path="../../">
+```
 
-### Recipe Schema
+The shared JavaScript loads `data/selected-recipes.json`, finds the matching recipe by `id` or `slug`, and renders the page.
+
+## Photo requirements
+
+Each recipe should include at least one real photo. Use multiple photos when available:
+
+- `hero` — primary recipe/catalog card image
+- `prep` — ingredients or prep checkpoint
+- `mid-cook` — in-progress cooking checkpoint
+- `finished` — finished plate
+
+Store files here:
+
+```text
+assets/recipes/<recipe-id>/<photo-name>.jpg
+```
+
+Reference them in JSON:
 
 ```json
-{
-  "id": "recipe-slug",
-  "title": "Recipe Title",
-  "description": "Short description of the recipe",
-  "time": {
-    "prep": 10,
-    "cook": 20,
-    "total": 30
-  },
-  "servings": 2,
-  "ingredients": [
-    {
-      "name": "Ingredient name",
-      "quantity": "Amount needed"
-    }
-  ],
-  "steps": [
-    {
-      "order": 1,
-      "title": "Step title",
-      "description": "What to do"
-    }
-  ],
-  "tags": ["vegetarian", "quick", "side-dish"],
-  "metadata": {
-    "difficulty": "easy",
-    "meal_type": "main",
-    "cuisine": "french",
-    "health": {
-      "protein": 1,
-      "veg": "high",
-      "carb": "medium"
-    }
+"photos": [
+  {
+    "type": "hero",
+    "src": "assets/recipes/quick-chard-saute/fresh-chard.jpg",
+    "alt": "Fresh Swiss chard with white stalks on a kitchen countertop",
+    "caption": "Fresh chard before cooking: separate thick stems from tender leaves."
   }
-}
+]
 ```
 
-## Structure
+## Recipe checklist
 
-```
-cooking-skills/
-├── data/
-│   └── selected-recipes.json   # Your recipe catalog
-├── .github/workflows/
-│   └── deploy.yml              # GitHub Pages deployment
-├── index.html                  # Main catalog page
-└── README.md                   # This file
-```
+Before committing a new recipe, verify:
 
-## Development
+- [ ] `id` is stable and URL-safe
+- [ ] `slug` matches `id`
+- [ ] `path` points to `recipes/<id>/`
+- [ ] At least one photo exists and loads
+- [ ] Every photo has useful `alt` text
+- [ ] Ingredients include quantities
+- [ ] Steps include visual cues
+- [ ] The recipe page exists at `recipes/<id>/index.html`
+- [ ] The catalog card links to the recipe page
 
-To run locally:
+## Local verification
 
 ```bash
-# Serve the site with Python's built-in server
 python3 -m http.server 8000
-
-# Or use any static file server
-npx serve .
 ```
 
-Then visit: http://localhost:8000
+Open:
+
+```text
+http://localhost:8000/
+http://localhost:8000/recipes/quick-chard-saute/
+```
 
 ## Deployment
 
-The site is automatically deployed to GitHub Pages when you push to the `main` branch and update recipes in `data/`.
+The GitHub Action in `.github/workflows/deploy.yml` publishes the static site to GitHub Pages when catalog files change, including:
 
-To enable GitHub Pages:
-
-1. Go to your repository's **Settings** page
-2. Click on **Pages** in the left sidebar
-3. Under **Source**, select ** GitHub Actions**
-4. Save changes
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-recipe`)
-3. Commit your changes (`git commit -m 'Add some amazing recipe'`)
-4. Push to the branch (`git push origin feature/amazing-recipe`)
-5. Open a Pull Request
-
-## License
-
-MIT License - see [LICENSE](LICENSE) for details.
-
----
-
-Built with 🍅 for cooking enthusiasts everywhere!
+- `index.html`
+- `_config.yml`
+- `assets/**`
+- `data/**`
+- `docs/**`
+- `recipes/**`
+- `skills/**`
+- `.github/workflows/deploy.yml`

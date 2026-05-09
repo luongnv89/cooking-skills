@@ -1,20 +1,48 @@
 {
-  "version": "1.0.0",
-  "generated_at": "2026-05-09T14:00:00Z",
+  "version": "1.1.0",
+  "generated_at": "2026-05-09T16:30:00Z",
   "recipes": [
     {
       "id": "quick-chard-saute",
       "title": "Sautéed Swiss Chard with Garlic and Lemon",
       "description": "A simple, fast, healthy side dish that highlights fresh chard with garlic, lemon, and olive oil.",
-      "time": { "prep": 10, "cook": 10, "total": 20 },
+      "time": {
+        "prep": 10,
+        "cook": 10,
+        "total": 20
+      },
       "servings": 2,
       "ingredients": [
-        { "name": "Swiss chard", "quantity": "500 g (1 large bunch)", "optional": false },
-        { "name": "Olive oil", "quantity": "3 tablespoons", "optional": false },
-        { "name": "Garlic", "quantity": "4 cloves, sliced", "optional": false },
-        { "name": "Red pepper flakes", "quantity": "1/2 teaspoon (optional)", "optional": true },
-        { "name": "Lemon", "quantity": "1/2 juice + zest", "optional": false },
-        { "name": "Salt and pepper", "quantity": "To taste", "optional": false }
+        {
+          "name": "Swiss chard",
+          "quantity": "500 g (1 large bunch)",
+          "optional": false
+        },
+        {
+          "name": "Olive oil",
+          "quantity": "3 tablespoons",
+          "optional": false
+        },
+        {
+          "name": "Garlic",
+          "quantity": "4 cloves, sliced",
+          "optional": false
+        },
+        {
+          "name": "Red pepper flakes",
+          "quantity": "1/2 teaspoon (optional)",
+          "optional": true
+        },
+        {
+          "name": "Lemon",
+          "quantity": "1/2 juice + zest",
+          "optional": false
+        },
+        {
+          "name": "Salt and pepper",
+          "quantity": "To taste",
+          "optional": false
+        }
       ],
       "steps": [
         {
@@ -48,18 +76,48 @@
           "visual": "Glistening, vibrant green with a fresh aroma"
         }
       ],
-      "tags": [ "vegetarian", "vegan", "quick", "side-dish", "chard" ],
+      "tags": [
+        "vegetarian",
+        "vegan",
+        "quick",
+        "side-dish",
+        "chard"
+      ],
       "metadata": {
         "difficulty": "easy",
         "meal_type": "side",
         "cuisine": "french",
-        "health": { "protein": 0, "veg": "high", "carb": "low" },
+        "health": {
+          "protein": 0,
+          "veg": "high",
+          "carb": "low"
+        },
         "visual_guide": {
-          "prep_shot": "Chopped stems and leaves arranged separately",
-          "mid_cook": "Leaves wilting in the pot with garlic sizzling",
-          "finished": "Final dish in a white bowl with lemon zest sprinkled"
+          "prep_shot": "Fresh chard on the counter, stems and leaves visible before chopping",
+          "mid_cook": "White stems glossy in the pan before adding leaves",
+          "finished": "Tender green chard finished with lemon zest and garlic"
+        },
+        "main_ingredient": "Swiss chard",
+        "protein_type": "none",
+        "vegetarian": true
+      },
+      "slug": "quick-chard-saute",
+      "path": "recipes/quick-chard-saute/",
+      "selected_at": "2026-05-09T16:30:00Z",
+      "photos": [
+        {
+          "type": "hero",
+          "src": "assets/recipes/quick-chard-saute/fresh-chard.jpg",
+          "alt": "Fresh Swiss chard with white stalks on a kitchen countertop",
+          "caption": "Fresh chard before cooking: separate thick stems from tender leaves."
+        },
+        {
+          "type": "prep",
+          "src": "assets/recipes/quick-chard-saute/fresh-chard.jpg",
+          "alt": "Bunch of fresh chard ready to wash, trim, and chop",
+          "caption": "Prep checkpoint: wash well, then cut stems and leaves separately."
         }
-      }
+      ]
     }
   ]
 }

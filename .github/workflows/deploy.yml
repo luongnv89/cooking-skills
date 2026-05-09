@@ -4,8 +4,13 @@ on:
   push:
     branches: [ main ]
     paths:
+      - 'index.html'
+      - '_config.yml'
+      - 'assets/**'
       - 'data/**'
-      - 'src/**'
+      - 'docs/**'
+      - 'recipes/**'
+      - 'skills/**'
       - '.github/workflows/deploy.yml'
   workflow_dispatch:
 
