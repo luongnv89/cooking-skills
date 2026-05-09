@@ -7,12 +7,14 @@
 
 # Quick Healthy Recipes
 
-> Generate three simple, fast, healthy recipes from food photos, ingredients, or a short cooking idea.
+> Generate three simple, fast, healthy recipes with quantities and visual step-by-step guidance from food photos, ingredients, or a short cooking idea.
 
 ## Highlights
 
 - Works from attached food images or plain ingredient descriptions
 - Produces exactly 3 realistic weeknight recipe options
+- Gives servings and practical ingredient quantities when possible
+- Adds visual step cues plus a 3-photo demonstration guide for the best pick
 - Keeps extra ingredients common and minimal
 - Prioritizes quick prep, no special equipment, and balanced meals
 - Flags uncertainty or food-safety concerns instead of guessing dangerously
@@ -23,7 +25,7 @@
 |---|---|
 | "What can I cook with this?" | Identify the food and suggest 3 fast healthy recipes |
 | "I have eggs, rice, and spinach" | Build 3 simple recipes around those ingredients |
-| "Find the best recipe for this tonight" | Rank the quickest, most practical option first |
+| "Find the best recipe for this tonight" | Rank the quickest, most practical option first with quantities and photos |
 | "I want something healthy and quick" | Suggest balanced recipes with common add-ons only |
 
 ## How It Works
@@ -32,9 +34,10 @@
 graph TD
     A["Identify Ingredients"] --> B["Apply Safety Filter"]
     B --> C["Create 3 Recipe Options"]
-    C --> D["Rank Best Fit for Tonight"]
+    C --> D["Add Quantities + Visual Steps"]
+    D --> E["Rank Best Fit for Tonight"]
     style A fill:#4CAF50,color:#fff
-    style D fill:#2196F3,color:#fff
+    style E fill:#2196F3,color:#fff
 ```
 
 ## Usage
@@ -45,4 +48,4 @@ graph TD
 
 ## Output
 
-A concise answer with exactly 3 recipes, each including time, best-use case, common extra ingredients, short steps, healthy balance notes, and one final pick for tonight.
+A concise answer with exactly 3 recipes, each including time, servings, ingredient quantities, step-by-step visual cues, healthy balance notes, and one final pick for tonight with a 3-photo demonstration guide or generated images when supported.
