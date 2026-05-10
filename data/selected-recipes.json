@@ -1,7 +1,167 @@
 {
-  "version": "1.3.0",
-  "generated_at": "2026-05-10T07:16:26Z",
+  "version": "1.3.1",
+  "generated_at": "2026-05-10T08:57:00Z",
   "recipes": [
+    {
+      "id": "bamboo-shoot-coconut-curry",
+      "slug": "bamboo-shoot-coconut-curry",
+      "path": "recipes/bamboo-shoot-coconut-curry/",
+      "selected_at": "2026-05-10T08:57:00Z",
+      "title": "Bamboo Shoot Coconut Curry",
+      "description": "A cozy bamboo shoot curry with coconut milk, onion, garlic, curry spices, greens, and optional chickpeas or egg for protein.",
+      "time": {
+        "prep": 10,
+        "cook": 25,
+        "total": 35
+      },
+      "servings": 2,
+      "photos": [
+        {
+          "type": "hero",
+          "src": "assets/recipes/bamboo-shoot-coconut-curry/fresh-bamboo-shoots.jpg",
+          "alt": "Fresh peeled bamboo shoots ready to slice and cook",
+          "caption": "Fresh bamboo shoots: boil or blanch thoroughly first, then discard the water before cooking."
+        },
+        {
+          "type": "prep",
+          "src": "assets/recipes/bamboo-shoot-coconut-curry/prep.png",
+          "alt": "Bamboo shoot coconut curry prep with sliced shoots, coconut milk, onion, garlic, curry powder, greens, lime, and chickpeas",
+          "caption": "Prep checkpoint: sliced bamboo shoots with curry aromatics, coconut milk, greens, and protein booster ready."
+        },
+        {
+          "type": "mid-cook",
+          "src": "assets/recipes/bamboo-shoot-coconut-curry/mid-cook.png",
+          "alt": "Bamboo shoots simmering in coconut curry sauce with greens",
+          "caption": "Mid-cook checkpoint: curry base is fragrant, coconut milk is lightly simmering, and greens are just wilting."
+        },
+        {
+          "type": "finished",
+          "src": "assets/recipes/bamboo-shoot-coconut-curry/finished.png",
+          "alt": "Finished bamboo shoot coconut curry served with rice and lime",
+          "caption": "Finished dish: bamboo slices coated in a light coconut curry sauce, served warm with rice and lime."
+        }
+      ],
+      "ingredients": [
+        {
+          "name": "Fresh bamboo shoots",
+          "quantity": "500 g, peeled and sliced",
+          "optional": false
+        },
+        {
+          "name": "Coconut milk",
+          "quantity": "200 ml",
+          "optional": false
+        },
+        {
+          "name": "Onion",
+          "quantity": "1 small, sliced",
+          "optional": false
+        },
+        {
+          "name": "Garlic",
+          "quantity": "2 cloves, chopped",
+          "optional": false
+        },
+        {
+          "name": "Curry powder",
+          "quantity": "1 tablespoon",
+          "optional": false
+        },
+        {
+          "name": "Spinach or leafy greens",
+          "quantity": "2 handfuls",
+          "optional": false
+        },
+        {
+          "name": "Chickpeas or boiled egg",
+          "quantity": "150 g chickpeas or 2 eggs, optional protein booster",
+          "optional": true
+        },
+        {
+          "name": "Lime or lemon",
+          "quantity": "1/2, juiced",
+          "optional": false
+        },
+        {
+          "name": "Oil, salt, pepper",
+          "quantity": "To taste",
+          "optional": false
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Blanch the bamboo safely",
+          "description": "Slice bamboo shoots, boil 15–20 minutes, then drain and discard the water before using.",
+          "visual": "Slices should look pale, tender, and clean; water may look slightly yellow or bitter."
+        },
+        {
+          "order": 2,
+          "title": "Build the curry base",
+          "description": "Sauté onion and garlic in a little oil for 3–4 minutes, then stir in curry powder until fragrant.",
+          "visual": "Onion should be glossy and golden; spices should smell warm, not burnt."
+        },
+        {
+          "order": 3,
+          "title": "Simmer bamboo and coconut",
+          "description": "Add coconut milk, blanched bamboo shoots, and chickpeas or egg if using. Simmer 6–8 minutes.",
+          "visual": "Sauce should bubble gently and lightly coat the bamboo slices."
+        },
+        {
+          "order": 4,
+          "title": "Finish with greens and lime",
+          "description": "Add greens until just wilted, then finish with lime juice and seasoning.",
+          "visual": "Greens should be bright and soft; curry should look creamy but not heavy."
+        }
+      ],
+      "nutrition": {
+        "per_serving": true,
+        "estimated": true,
+        "score": 7.0,
+        "calories_kcal": 480,
+        "protein_g": 10,
+        "sugar_g": 7,
+        "sodium_mg": 550,
+        "salt_g": 1.4,
+        "vitamins": [
+          "potassium",
+          "iron",
+          "folate",
+          "fiber"
+        ],
+        "note": "Estimate assumes chickpeas as the optional protein booster; sodium depends on added salt. Bamboo shoots must be cooked thoroughly."
+      },
+      "tags": [
+        "vegetarian",
+        "vegan-option",
+        "bamboo-shoots",
+        "curry",
+        "main",
+        "healthy"
+      ],
+      "metadata": {
+        "difficulty": "easy",
+        "meal_type": "main",
+        "cuisine": "weeknight",
+        "main_ingredient": "Bamboo shoots",
+        "protein_type": "chickpeas optional",
+        "vegetarian": true,
+        "health": {
+          "protein": 2,
+          "veg": "medium",
+          "carb": "medium"
+        },
+        "healthy_balance": "Bamboo shoot fiber plus coconut fat, greens, and optional chickpeas or egg protein; serve with rice if you want a fuller meal.",
+        "visual_guide": {
+          "prep_shot": "Blanched bamboo shoot slices with onion, garlic, curry powder, coconut milk, greens, lime, and chickpeas ready.",
+          "mid_cook": "Golden onion-garlic curry base with coconut milk gently simmering around bamboo slices.",
+          "finished": "Creamy bamboo shoot curry with wilted greens, lime, and a small serving of rice."
+        },
+        "nutrition_applied_at": "2026-05-10T08:57:00Z",
+        "nutrition_source": "quick-healthy-recipes v1.3.0 estimate from input photo + recipe quantities",
+        "safety_note": "Fresh bamboo shoots must be boiled or blanched thoroughly and the water discarded before eating."
+      }
+    },
     {
       "id": "cassava-coconut-curry",
       "slug": "cassava-coconut-curry",
