@@ -4,19 +4,25 @@
     {
       "id": 1,
       "prompt": "I have Swiss chard from the market. Find me the best recipe to cook it tonight.",
-      "expected_output": "Exactly 3 simple, fast, healthy recipes using Swiss chard, with the fastest/practical option first and common extra ingredients only. Output should include servings, practical ingredient quantities, visual cues in steps, and a 3-photo guide or generated demonstration images for the pick.",
+      "expected_output": "Exactly 3 simple, fast, healthy recipes using Swiss chard, with the fastest/practical option first and common extra ingredients only. Output should include servings, practical ingredient quantities, visual cues in steps, and a 3-photo prep/mid-cook/finished guide for every recipe, with generated/attached/downloaded images when tools and rights allow.",
       "files": []
     },
     {
       "id": 2,
       "prompt": "I have eggs, rice, carrots, and tofu. What can I cook quickly and healthy?",
-      "expected_output": "Exactly 3 balanced weeknight recipes using the provided ingredients, no special equipment, each with short steps and healthy balance notes. Output should include servings, practical ingredient quantities, visual cues in steps, and a 3-photo guide or generated demonstration images for the pick.",
+      "expected_output": "Exactly 3 balanced weeknight recipes using the provided ingredients, no special equipment, each with short steps and healthy balance notes. Output should include servings, practical ingredient quantities, visual cues in steps, and a 3-photo prep/mid-cook/finished guide for every recipe, with generated/attached/downloaded images when tools and rights allow.",
       "files": []
     },
     {
       "id": 3,
       "prompt": "Here is a photo of some leafy greens. What should I cook?",
-      "expected_output": "The agent inspects or acknowledges the image, states any uncertainty, then gives exactly 3 simple, fast, healthy recipe options with safe assumptions. Output should include servings, practical ingredient quantities, visual cues in steps, and a 3-photo guide or generated demonstration images for the pick.",
+      "expected_output": "The agent inspects or acknowledges the image, states any uncertainty, then gives exactly 3 simple, fast, healthy recipe options with safe assumptions. Output should include servings, practical ingredient quantities, visual cues in steps, and a 3-photo prep/mid-cook/finished guide for every recipe, with generated/attached/downloaded images when tools and rights allow.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Search and find quick healthy recipes for cassava tonight, and include images for the process and final dish.",
+      "expected_output": "The agent searches recipe sources, cites inspiration briefly, gives exactly 3 quick healthy cassava recipes with quantities and visual cues, and provides prep/mid-cook/finished image guidance for every recipe. If source recipe images are found, it downloads or attaches them only when reuse rights are clear; otherwise it links/cites sources and generates original demonstration images or gives shot descriptions.",
       "files": []
     }
   ]
