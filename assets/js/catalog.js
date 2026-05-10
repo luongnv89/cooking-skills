@@ -51,6 +51,63 @@ function nutritionSummary(recipe) {
   </div>`;
 }
 
+function nutritionDetails(recipe) {
+  const nutrition = nutritionFor(recipe);
+  if (!nutrition) return '';
+  const sodium = nutrition.sodium_mg ? `~${nutrition.sodium_mg}mg sodium` : (nutrition.salt_g ? `~${nutrition.salt_g}g salt` : 'salt to taste');
+  const sugar = nutrition.sugar_g != null ? `~${nutrition.sugar_g}g sugar` : '~?g sugar';
+  const vitamins = (nutrition.vitamins || []).slice(0, 3).join(' · ') || 'micronutrients vary';
+  return `<div class="nutrition-details" aria-label="Detailed nutrition estimate">
+    <span>🍬 ${sugar}</span>
+    <span>🧂 ${sodium}</span>
+    <span>🌿 ${vitamins}</span>
+  </div>`;
+}
+
+function photoSummary(recipe) {
+  const photos = recipe.photos || [];
+  const guide = recipe.metadata?.visual_guide || {};
+  const guideCount = ['prep_shot', 'mid_cook', 'finished'].filter((key) => guide[key]).length;
+  return `<div class="photo-summary" aria-label="Photo and visual guide summary">
+    <span>📷 ${photos.length} photo${photos.length === 1 ? '' : 's'}</span>
+    <span>👀 ${guideCount}/3 visual checkpoints</span>
+  </div>`;
+}
+
+function renderCatalogStats() {
+  const target = document.querySelector('[data-catalog-stats]');
+  if (!target) return;
+  const recipes = catalogState.recipes;
+  const withNutrition = recipes.filter((recipe) => nutritionFor(recipe)).length;
+  const totalPhotos = recipes.reduce((sum, recipe) => sum + (recipe.photos || []).length, 0);
+  const avgScore = recipes.length ? recipes.reduce((sum, recipe) => sum + (nutritionFor(recipe)?.score || healthScore(recipe)), 0) / recipes.length : 0;
+  const fastest = recipes.reduce((best, recipe) => !best || (recipe.time?.total || 999) < (best.time?.total || 999) ? recipe : best, null);
+  target.innerHTML = `
+    <div><strong>${recipes.length}</strong><span>recipes</span></div>
+    <div><strong>${withNutrition}/${recipes.length}</strong><span>with nutrition</span></div>
+    <div><strong>${totalPhotos}</strong><span>photos</span></div>
+    <div><strong>${avgScore ? avgScore.toFixed(1) : '—'}</strong><span>avg score</span></div>
+    <div><strong>${fastest?.time?.total || '—'} min</strong><span>fastest</span></div>`;
+}
+
+function renderHeroSummary(recipe) {
+  const target = document.querySelector('[data-hero-summary]');
+  if (!target || !recipe) return;
+  const nutrition = nutritionFor(recipe);
+  const vitamins = (nutrition?.vitamins || []).slice(0, 3).join(' · ') || 'visual guide ready';
+  target.innerHTML = `<p class="eyebrow">Featured now</p>
+    <h2>${recipe.title}</h2>
+    <p>${recipe.description}</p>
+    <div class="hero-metrics">
+      <span>⏱ ${recipe.time?.total || '?'} min</span>
+      <span>👥 ${recipe.servings} servings</span>
+      <span>📊 ${nutrition?.score || healthScore(recipe)}/10</span>
+      <span>🔥 ~${nutrition?.calories_kcal || '?'} kcal</span>
+    </div>
+    <p class="visual-cue">🌿 ${vitamins}</p>
+    <a class="hero-cta" href="${recipePath(recipe)}">Open cooking page</a>`;
+}
+
 function renderNutritionPanel(recipe) {
   const nutrition = nutritionFor(recipe);
   if (!nutrition) return '';
@@ -78,6 +135,8 @@ function renderCatalog() {
   if (hero && heroPhoto) {
     hero.innerHTML = `<div class="photo-frame"><img src="${asset(heroPhoto.src)}" alt="${heroPhoto.alt || featured.title}"></div><figcaption>${heroPhoto.caption || featured.title}</figcaption>`;
   }
+  renderCatalogStats();
+  renderHeroSummary(featured);
   updateCatalog();
   document.querySelector('[data-search]')?.addEventListener('input', updateCatalog);
   document.querySelector('[data-filter]')?.addEventListener('change', updateCatalog);
@@ -135,6 +194,8 @@ function renderCard(recipe) {
         <span class="pill">${recipe.metadata?.main_ingredient || recipe.tags?.[0] || 'recipe'}</span>
       </div>
       ${nutritionSummary(recipe)}
+      ${nutritionDetails(recipe)}
+      ${photoSummary(recipe)}
       <div class="meta">${(recipe.tags || []).slice(0, 4).map((tag) => `<span class="pill">#${tag}</span>`).join('')}</div>
     </div>
   </a>`;
