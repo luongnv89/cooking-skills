@@ -1,16 +1,16 @@
 ---
 name: quick-healthy-recipes
-description: "Generate exactly 3 quick healthy recipes with quantities, visual cues, and process/final images from food photos, ingredients, cravings, or recipe search. Don't use for restaurants, meal plans, baking, or medical diets."
+description: "Generate exactly 3 quick healthy recipes with quantities, nutrition estimates, Telegram layout, visual cues, and images from food photos, ingredients, cravings, or recipe search. Don't use for restaurants, meal plans, baking, or medical diets."
 license: MIT
 effort: medium
 metadata:
-  version: 1.2.0
+  version: 1.3.0
   author: "Luong NGUYEN <luongnv89@gmail.com>"
 ---
 
 # Quick Healthy Recipes
 
-Turn food photos, ingredient lists, or a short cooking desire into **exactly 3** practical recipes that are simple, fast, visual, and healthy enough for a normal weeknight.
+Turn food photos, ingredient lists, or a short cooking desire into **exactly 3** practical recipes that are simple, fast, visual, nutrition-aware, Telegram-readable, and healthy enough for a normal weeknight.
 
 ## When to use
 
@@ -32,9 +32,11 @@ Optimize every answer for:
 3. **Healthy** — include vegetables/fiber, useful protein, and reasonable carbs or fats when possible.
 4. **Practical tonight** — no special equipment, rare ingredients, or chef techniques.
 5. **Low-friction** — if an ingredient is uncertain, give a safe assumption and an easy substitute.
-6. **Visual** — show what each recipe should look like from prep to mid-cook to finished plate, and generate, attach, or download demonstration images when the runtime supports it.
-7. **Quantified** — include servings and ingredient quantities whenever enough context is available; use estimates when the user did not provide exact amounts.
-8. **Source-aware** — if the user asks to search or find recipes, use web sources for inspiration, cite them briefly, and handle images with licensing/attribution care.
+6. **Nutrition-aware** — include clearly labeled estimates for health score, calories, protein, sugar, salt/sodium, and vitamins or micronutrient highlights for each recipe.
+7. **Telegram-readable** — use compact, mobile-friendly bullets and emoji labels; avoid markdown tables in chat responses.
+8. **Visual** — show what each recipe should look like from prep to mid-cook to finished plate, and generate, attach, or download demonstration images when the runtime supports it.
+9. **Quantified** — include servings and ingredient quantities whenever enough context is available; use estimates when the user did not provide exact amounts.
+10. **Source-aware** — if the user asks to search or find recipes, use web sources for inspiration, cite them briefly, and handle images with licensing/attribution care.
 
 Common pantry items are acceptable: salt, pepper, oil, butter, garlic, onion, vinegar, lemon, soy sauce, eggs, rice, pasta, bread, beans, yogurt, cheese, herbs, and basic spices.
 
@@ -61,7 +63,7 @@ Ask a question only when a safety-critical detail is missing. Otherwise, make a 
 
 Do not confidently identify or recommend eating high-risk unknown items such as wild mushrooms, unknown berries, spoiled food, raw seafood, or foraged plants. If the food might be unsafe, say so and suggest using only verified ingredients.
 
-Do not give medical nutrition advice. For allergies, pregnancy, diabetes, kidney disease, or other medical constraints, keep guidance general and tell the user to follow their clinician's advice.
+Do not give medical nutrition advice. Nutrition numbers are rough cooking estimates, not clinical guidance. For allergies, pregnancy, diabetes, kidney disease, hypertension/salt limits, or other medical constraints, keep guidance general and tell the user to follow their clinician's advice.
 
 ### 3. Build 3 recipe options
 
@@ -88,7 +90,22 @@ For each recipe include:
 - Prep/cook time split when useful
 - Optional swaps only when they reduce friction
 
-### 5. Add visual guidance and images
+### 5. Add nutrition estimates
+
+For **each of the 3 recipes**, add a compact nutrition estimate block. Label values as estimates and keep them practical, not clinical. Use household-level approximations from the quantities listed. If an ingredient amount is uncertain, give a range.
+
+Include these fields:
+
+- **Score** — a simple health score out of 10, based on vegetables/fiber, protein, reasonable oil/sugar/salt, and cooking method.
+- **Calories** — estimated kcal per serving.
+- **Protein** — grams per serving.
+- **Sugar** — grams per serving, especially for fruit/sweet recipes.
+- **Salt / sodium** — prefer sodium in mg per serving; salt in g is acceptable if easier.
+- **Vitamins** — 1–3 key vitamin/mineral highlights, such as vitamin C, vitamin A, potassium, calcium, iron, folate, or fiber.
+
+Do not over-precise nutrition numbers. Use rounded values like `~420 kcal`, `~18g protein`, `~650mg sodium`.
+
+### 6. Add visual guidance and images
 
 Give step-by-step visual cues so the user knows what success looks like:
 
@@ -106,65 +123,60 @@ When web search finds recipe pages with useful images:
 
 Do not generate or download images for unsafe, uncertain, or medical-diet situations.
 
-### 6. Rank for tonight
+### 7. Rank for tonight
 
 Put the best fit first. The first recipe should usually be the fastest and most realistic with the least extra shopping.
 
 ## Output format
 
-Use this exact structure. Keep it concise but specific.
+Use this Telegram-friendly structure. Keep it compact, specific, and **do not use markdown tables**.
 
 ```markdown
 Looks like: [ingredient identification or parsed request]
 Assumption: [one short assumption, including default servings if needed]
 
-1. [Recipe name] — [total time], [servings]
+1) 🍽 [Recipe name]
+⏱ [total time] · 👥 [servings]
 Best if: [why this is the top fit]
-Ingredients:
+
+🛒 Ingredients
 - [quantity] [ingredient]
 - [quantity] [ingredient]
-Steps:
+
+🍳 Steps
 1. [action + visual cue]
 2. [action + visual cue]
 3. [action + visual cue]
-Healthy balance: [protein + veg/fiber + carb/fat note]
 
-2. [Recipe name] — [total time], [servings]
-Best if: [why choose it]
-Ingredients:
-- [quantity] [ingredient]
-- [quantity] [ingredient]
-Steps:
-1. [action + visual cue]
-2. [action + visual cue]
-3. [action + visual cue]
-Healthy balance: [protein + veg/fiber + carb/fat note]
+💪 Balance: [protein + veg/fiber + carb/fat note]
+📊 Nutrition estimate / serving:
+- Score: [x/10]
+- Calories: [~kcal]
+- Protein: [~g]
+- Sugar: [~g]
+- Sodium/salt: [~mg sodium or ~g salt]
+- Vitamins: [1–3 key highlights]
 
-3. [Recipe name] — [total time], [servings]
-Best if: [why choose it]
-Ingredients:
-- [quantity] [ingredient]
-- [quantity] [ingredient]
-Steps:
-1. [action + visual cue]
-2. [action + visual cue]
-3. [action + visual cue]
-Healthy balance: [protein + veg/fiber + carb/fat note]
+2) 🍽 [Recipe name]
+[repeat same compact sections]
 
-Pick tonight: [one sentence recommendation]
+3) 🍽 [Recipe name]
+[repeat same compact sections]
 
-Photo guide:
-- [Recipe 1] Photo 1: [prep/ingredient shot]
-- [Recipe 1] Photo 2: [mid-cook visual checkpoint]
-- [Recipe 1] Photo 3: [finished dish]
-- [Recipe 2] Photo 1: [prep/ingredient shot]
-- [Recipe 2] Photo 2: [mid-cook visual checkpoint]
-- [Recipe 2] Photo 3: [finished dish]
-- [Recipe 3] Photo 1: [prep/ingredient shot]
-- [Recipe 3] Photo 2: [mid-cook visual checkpoint]
-- [Recipe 3] Photo 3: [finished dish]
+✅ Pick tonight: [one sentence recommendation]
 
-Images used/generated:
+📸 Photo guide
+- [Recipe 1] Prep: [prep/ingredient shot]
+- [Recipe 1] Mid-cook: [visual checkpoint]
+- [Recipe 1] Finished: [finished dish]
+- [Recipe 2] Prep: [prep/ingredient shot]
+- [Recipe 2] Mid-cook: [visual checkpoint]
+- [Recipe 2] Finished: [finished dish]
+- [Recipe 3] Prep: [prep/ingredient shot]
+- [Recipe 3] Mid-cook: [visual checkpoint]
+- [Recipe 3] Finished: [finished dish]
+
+🖼 Images used/generated
 - [If attached/downloaded/generated, list files or URLs grouped by recipe and label prep/mid-cook/finished. Include source attribution for downloaded images.]
 ```
 
@@ -176,6 +188,8 @@ A successful response must be easy to verify:
 
 - Exactly 3 numbered recipes, no more and no fewer.
 - Each recipe has time, servings, quantities, steps with visual cues, and a healthy-balance note.
+- Each recipe has a clearly labeled nutrition estimate: score, calories, protein, sugar, sodium/salt, and vitamins/micronutrients.
+- The response is Telegram-friendly: compact sections, short bullets, emoji labels, and no markdown tables.
 - Each recipe has a prep, mid-cook, and finished-output photo guide.
 - Image files or URLs are grouped by recipe when available.
 - Downloaded images include source attribution and are used only when reuse rights are clear.
@@ -187,23 +201,29 @@ Expected output shape:
 Looks like: ...
 Assumption: ...
 
-1. Recipe name — 25 min, 2 servings
+1) 🍽 Recipe name
+⏱ 25 min · 👥 2 servings
 ...
-Healthy balance: ...
+💪 Balance: ...
+📊 Nutrition estimate / serving:
+- Score: 8/10
+- Calories: ~420 kcal
+- Protein: ~18g
+- Sugar: ~6g
+- Sodium/salt: ~650mg sodium
+- Vitamins: vitamin C, potassium, fiber
 
-2. Recipe name — 30 min, 2 servings
+2) 🍽 Recipe name
 ...
-Healthy balance: ...
 
-3. Recipe name — 35 min, 2 servings
+3) 🍽 Recipe name
 ...
-Healthy balance: ...
 
-Pick tonight: ...
-Photo guide:
-- [Recipe 1] Photo 1: ...
+✅ Pick tonight: ...
+📸 Photo guide
+- [Recipe 1] Prep: ...
 ...
-Images used/generated:
+🖼 Images used/generated
 - [Recipe 1] prep: ...
 ```
 
@@ -216,6 +236,9 @@ Before finalizing, check:
 - Extra ingredients are common and limited
 - Quantities and servings are included or clearly estimated
 - Steps include visual cues, not just actions
+- Each recipe has estimated score, calories, protein, sugar, sodium/salt, and vitamins/micronutrients
+- Nutrition values are clearly labeled as estimates and rounded to practical units
+- Telegram response is easy to scan: compact bullets, emoji labels, no markdown tables
 - A 3-photo guide is included for every recipe
 - Generated/attached/downloaded images are included for every recipe when tools and rights allow; otherwise the limitation is stated briefly
 - Downloaded images have clear reuse permission or attribution; unclear-rights images are linked/cited, not copied

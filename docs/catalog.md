@@ -9,7 +9,7 @@ This document explains how the GitHub Pages cooking catalog works and how to add
 - `assets/css/catalog.css` — shared design system
 - `assets/js/catalog.js` — shared catalog and recipe rendering logic
 - `assets/recipes/<recipe-id>/` — recipe photos
-- `data/selected-recipes.json` — structured recipe data
+- `data/selected-recipes.json` — structured recipe data, including estimated nutrition when available
 
 ## Dedicated recipe paths
 
@@ -72,6 +72,7 @@ Before committing a new recipe, verify:
 - [ ] Every photo has useful `alt` text
 - [ ] Ingredients include quantities
 - [ ] Steps include visual cues
+- [ ] Nutrition estimates include score, calories, protein, sugar, sodium/salt, and vitamins when available
 - [ ] The recipe page exists at `recipes/<id>/index.html`
 - [ ] The catalog card links to the recipe page
 

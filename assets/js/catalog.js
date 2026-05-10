@@ -29,7 +29,46 @@ function searchableText(recipe) {
     recipe.metadata?.cuisine,
     recipe.metadata?.main_ingredient,
     recipe.metadata?.meal_type,
+    recipe.metadata?.healthy_balance,
+    (recipe.nutrition?.vitamins || []).join(' '),
   ].join(' ').toLowerCase();
+}
+
+function nutritionFor(recipe) {
+  return recipe.nutrition || recipe.metadata?.nutrition || null;
+}
+
+function nutritionSummary(recipe) {
+  const nutrition = nutritionFor(recipe);
+  if (!nutrition) return '';
+  const score = nutrition.score ? `${nutrition.score}/10` : '?/10';
+  const calories = nutrition.calories_kcal ? `~${nutrition.calories_kcal} kcal` : '~? kcal';
+  const protein = nutrition.protein_g ? `~${nutrition.protein_g}g protein` : '~?g protein';
+  return `<div class="nutrition-strip" aria-label="Nutrition estimate per serving">
+    <span>📊 ${score}</span>
+    <span>🔥 ${calories}</span>
+    <span>💪 ${protein}</span>
+  </div>`;
+}
+
+function renderNutritionPanel(recipe) {
+  const nutrition = nutritionFor(recipe);
+  if (!nutrition) return '';
+  const vitamins = (nutrition.vitamins || []).join(', ') || 'varies by ingredients';
+  const sodium = nutrition.sodium_mg ? `~${nutrition.sodium_mg} mg sodium` : (nutrition.salt_g ? `~${nutrition.salt_g} g salt` : 'season to taste');
+  return `<section class="content-panel nutrition-panel">
+      <h2>Nutrition estimate</h2>
+      <p class="estimate-note">Per serving · rough cooking estimate, not medical advice.</p>
+      <div class="nutrition-grid">
+        <div><span>Score</span><strong>${nutrition.score || '?'} / 10</strong></div>
+        <div><span>Calories</span><strong>~${nutrition.calories_kcal || '?'} kcal</strong></div>
+        <div><span>Protein</span><strong>~${nutrition.protein_g || '?'} g</strong></div>
+        <div><span>Sugar</span><strong>~${nutrition.sugar_g || '?'} g</strong></div>
+        <div><span>Sodium/salt</span><strong>${sodium}</strong></div>
+        <div><span>Vitamins</span><strong>${vitamins}</strong></div>
+      </div>
+      ${nutrition.note ? `<p class="visual-cue">${nutrition.note}</p>` : ''}
+    </section>`;
 }
 
 function renderCatalog() {
@@ -76,6 +115,8 @@ function updateCatalog() {
 }
 
 function healthScore(recipe) {
+  const nutrition = nutritionFor(recipe);
+  if (nutrition?.score) return nutrition.score;
   const health = recipe.metadata?.health || {};
   return (health.veg === 'high' ? 3 : 1) + (health.protein || 0) + (health.carb === 'low' ? 1 : 0);
 }
@@ -93,6 +134,7 @@ function renderCard(recipe) {
         <span class="pill">${recipe.metadata?.difficulty || 'easy'}</span>
         <span class="pill">${recipe.metadata?.main_ingredient || recipe.tags?.[0] || 'recipe'}</span>
       </div>
+      ${nutritionSummary(recipe)}
       <div class="meta">${(recipe.tags || []).slice(0, 4).map((tag) => `<span class="pill">#${tag}</span>`).join('')}</div>
     </div>
   </a>`;
@@ -128,9 +170,10 @@ function renderRecipePage() {
       <h2>Cooking steps</h2>
       <ol class="steps">${recipe.steps.map((step) => `<li><div><div class="step-title">${step.title}</div><div>${step.description}</div>${step.visual ? `<div class="visual-cue">Look for: ${step.visual}</div>` : ''}</div></li>`).join('')}</ol>
     </section>
+    ${renderNutritionPanel(recipe)}
     <section class="content-panel">
       <h2>Healthy balance</h2>
-      <p>Vegetable-forward, light on carbs, and ready quickly. Add white beans, eggs, tofu, fish, or chicken if you want a more complete protein-rich dinner.</p>
+      <p>${recipe.metadata?.healthy_balance || 'Vegetable-forward, balanced where possible, and ready quickly. Add white beans, eggs, tofu, fish, or chicken if you want a more complete protein-rich dinner.'}</p>
     </section>
   </section>
   <aside class="photo-stack" aria-label="Recipe photos">

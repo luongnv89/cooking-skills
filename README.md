@@ -8,7 +8,7 @@ A mobile-first visual cooking catalog for selected recipes.
 - **Recipe photos** — catalog cards, hero sections, and detail pages use real recipe photos
 - **Search and filter** — search by title, ingredient, tag, cuisine, or style
 - **Sort options** — newest selected, fastest, healthiest, or title A–Z
-- **Cooking mode details** — ingredients, quantities, steps, visual cues, and photo guide
+- **Cooking mode details** — ingredients, quantities, steps, nutrition estimates, visual cues, and photo guide
 - **Static hosting** — no backend; deploys with GitHub Pages
 
 ## Live Site
@@ -97,6 +97,18 @@ The catalog will use the first photo for cards and the `hero` photo for the feat
       "visual": "What success should look like"
     }
   ],
+  "nutrition": {
+    "per_serving": true,
+    "estimated": true,
+    "score": 8,
+    "calories_kcal": 230,
+    "protein_g": 4,
+    "sugar_g": 2,
+    "sodium_mg": 350,
+    "salt_g": 0.9,
+    "vitamins": ["vitamin C", "potassium", "fiber"],
+    "note": "Rough cooking estimate, not medical advice."
+  },
   "tags": ["vegetarian", "quick"],
   "metadata": {
     "difficulty": "easy",
