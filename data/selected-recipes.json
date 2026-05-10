@@ -1,6 +1,6 @@
 {
-  "version": "1.2.1",
-  "generated_at": "2026-05-10T06:26:00Z",
+  "version": "1.3.0",
+  "generated_at": "2026-05-10T07:16:26Z",
   "recipes": [
     {
       "id": "cassava-coconut-curry",
@@ -127,7 +127,27 @@
           "mid_cook": "Cassava fork-tender and a golden onion-garlic curry base starting to simmer with coconut milk.",
           "finished": "Cassava chunks coated in a light coconut curry sauce with wilted greens and a squeeze of lime."
         },
-        "safety_note": "Cassava must be peeled and cooked thoroughly; do not eat raw."
+        "safety_note": "Cassava must be peeled and cooked thoroughly; do not eat raw.",
+        "nutrition_applied_at": "2026-05-10T07:16:26Z",
+        "nutrition_source": "quick-healthy-recipes v1.3.0 estimate from catalog photo + recipe quantities",
+        "healthy_balance": "Carb-rich cassava with coconut fat, greens/fiber, and optional chickpeas or another protein to make it a complete dinner."
+      },
+      "nutrition": {
+        "per_serving": true,
+        "estimated": true,
+        "score": 7.5,
+        "calories_kcal": 720,
+        "protein_g": 13,
+        "sugar_g": 6,
+        "sodium_mg": 650,
+        "salt_g": 1.6,
+        "vitamins": [
+          "vitamin C",
+          "potassium",
+          "folate",
+          "fiber"
+        ],
+        "note": "Estimate assumes greens plus the optional chickpeas/protein booster; sodium depends on added salt."
       }
     },
     {
@@ -227,7 +247,10 @@
         },
         "main_ingredient": "Swiss chard",
         "protein_type": "none",
-        "vegetarian": true
+        "vegetarian": true,
+        "nutrition_applied_at": "2026-05-10T07:16:26Z",
+        "nutrition_source": "quick-healthy-recipes v1.3.0 estimate from catalog photo + recipe quantities",
+        "healthy_balance": "Very vegetable-forward and fiber-rich; best as a side unless paired with eggs, beans, tofu, fish, or chicken."
       },
       "slug": "quick-chard-saute",
       "path": "recipes/quick-chard-saute/",
@@ -245,7 +268,24 @@
           "alt": "Bunch of fresh chard ready to wash, trim, and chop",
           "caption": "Prep checkpoint: wash well, then cut stems and leaves separately."
         }
-      ]
+      ],
+      "nutrition": {
+        "per_serving": true,
+        "estimated": true,
+        "score": 8.0,
+        "calories_kcal": 230,
+        "protein_g": 4,
+        "sugar_g": 2,
+        "sodium_mg": 350,
+        "salt_g": 0.9,
+        "vitamins": [
+          "vitamin K",
+          "vitamin A",
+          "vitamin C",
+          "magnesium"
+        ],
+        "note": "Estimate assumes moderate seasoning; add eggs, beans, tofu, fish, or chicken for a fuller protein meal."
+      }
     },
     {
       "id": "apple-yogurt-skillet",
@@ -367,7 +407,27 @@
             "src": "assets/recipes/apple-yogurt-skillet/fresh-apples.jpg",
             "caption": "Final recipe page output: dedicated recipe page with photos, quantities, and visual cooking guidance."
           }
-        }
+        },
+        "nutrition_applied_at": "2026-05-10T07:16:26Z",
+        "nutrition_source": "quick-healthy-recipes v1.3.0 estimate from catalog photo + recipe quantities",
+        "healthy_balance": "Fruit fiber plus Greek-yogurt protein and nuts for healthy fats; better as breakfast/snack than a full dinner."
+      },
+      "nutrition": {
+        "per_serving": true,
+        "estimated": true,
+        "score": 8.0,
+        "calories_kcal": 360,
+        "protein_g": 14,
+        "sugar_g": 28,
+        "sodium_mg": 55,
+        "salt_g": 0.1,
+        "vitamins": [
+          "vitamin C",
+          "calcium",
+          "fiber",
+          "omega-3/healthy fats"
+        ],
+        "note": "Sugar is mostly from apples and yogurt; skip honey to lower it slightly."
       }
     }
   ]
