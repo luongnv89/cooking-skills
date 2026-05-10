@@ -227,6 +227,18 @@
           "prep_shot": "Washed apples cored and sliced into thin wedges, skins on",
           "mid_cook": "Apple slices glossy and softening in a skillet with cinnamon",
           "finished": "Warm cinnamon apples over yogurt with walnuts and a small honey drizzle"
+        },
+        "photo_guide": {
+          "input_photo": {
+            "type": "input",
+            "src": "assets/recipes/apple-yogurt-skillet/fresh-apples.jpg",
+            "caption": "Original input photo: fresh mixed apples in a clear plastic bag."
+          },
+          "final_output": {
+            "type": "output",
+            "src": "assets/recipes/apple-yogurt-skillet/fresh-apples.jpg",
+            "caption": "Final recipe page output: dedicated recipe page with photos, quantities, and visual cooking guidance."
+          }
         }
       }
     }
