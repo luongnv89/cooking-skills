@@ -1,7 +1,135 @@
 {
-  "version": "1.2.0",
-  "generated_at": "2026-05-09T16:55:00Z",
+  "version": "1.2.1",
+  "generated_at": "2026-05-10T06:26:00Z",
   "recipes": [
+    {
+      "id": "cassava-coconut-curry",
+      "slug": "cassava-coconut-curry",
+      "path": "recipes/cassava-coconut-curry/",
+      "selected_at": "2026-05-10T06:26:00Z",
+      "title": "Cassava Coconut Curry",
+      "description": "A cozy, healthy cassava curry with coconut milk, onion, garlic, curry spices, and optional greens or chickpeas.",
+      "time": {
+        "prep": 10,
+        "cook": 25,
+        "total": 35
+      },
+      "servings": 2,
+      "photos": [
+        {
+          "type": "hero",
+          "src": "assets/recipes/cassava-coconut-curry/fresh-cassava.jpg",
+          "alt": "Fresh cassava roots on a kitchen surface before peeling and cooking",
+          "caption": "Fresh cassava: peel fully, cut into chunks, remove the woody center, and cook thoroughly."
+        },
+        {
+          "type": "prep",
+          "src": "assets/recipes/cassava-coconut-curry/fresh-cassava.jpg",
+          "alt": "Cassava ready to peel, cut, and boil for curry",
+          "caption": "Prep checkpoint: clean white cassava chunks with the tough center removed."
+        }
+      ],
+      "ingredients": [
+        {
+          "name": "Cassava / yuca",
+          "quantity": "700 g, peeled, woody center removed, cut into chunks",
+          "optional": false
+        },
+        {
+          "name": "Coconut milk",
+          "quantity": "200 ml",
+          "optional": false
+        },
+        {
+          "name": "Onion",
+          "quantity": "1 small, sliced",
+          "optional": false
+        },
+        {
+          "name": "Garlic",
+          "quantity": "2 cloves, chopped",
+          "optional": false
+        },
+        {
+          "name": "Curry powder",
+          "quantity": "1 tablespoon",
+          "optional": false
+        },
+        {
+          "name": "Spinach or leafy greens",
+          "quantity": "2 handfuls",
+          "optional": true
+        },
+        {
+          "name": "Chickpeas, egg, chicken, or fish",
+          "quantity": "150 g cooked chickpeas or another protein, optional",
+          "optional": true
+        },
+        {
+          "name": "Lime or lemon",
+          "quantity": "1/2, juiced",
+          "optional": false
+        },
+        {
+          "name": "Salt, pepper, oil",
+          "quantity": "To taste",
+          "optional": false
+        }
+      ],
+      "steps": [
+        {
+          "order": 1,
+          "title": "Prep cassava safely",
+          "description": "Peel the cassava completely, cut into chunks, and remove the tough woody center from each piece.",
+          "visual": "Chunks should look clean white with no brown skin or fibrous core."
+        },
+        {
+          "order": 2,
+          "title": "Boil until tender",
+          "description": "Boil cassava in salted water for 20–25 minutes, then drain.",
+          "visual": "A fork should slide in easily and edges should look slightly fluffy."
+        },
+        {
+          "order": 3,
+          "title": "Build the curry base",
+          "description": "Sauté onion and garlic in a little oil for 3–4 minutes. Add curry powder and stir until fragrant.",
+          "visual": "Onion should be glossy and golden; spices should smell warm, not burnt."
+        },
+        {
+          "order": 4,
+          "title": "Simmer and finish",
+          "description": "Add coconut milk, cassava, and greens or chickpeas if using. Simmer 5–8 minutes, then finish with lime.",
+          "visual": "Sauce should lightly coat the cassava chunks and greens should be just wilted."
+        }
+      ],
+      "tags": [
+        "vegetarian",
+        "vegan-option",
+        "cassava",
+        "curry",
+        "main",
+        "healthy"
+      ],
+      "metadata": {
+        "difficulty": "easy",
+        "meal_type": "main",
+        "cuisine": "weeknight",
+        "main_ingredient": "Cassava",
+        "protein_type": "chickpeas optional",
+        "vegetarian": true,
+        "health": {
+          "protein": 2,
+          "veg": "medium",
+          "carb": "medium"
+        },
+        "visual_guide": {
+          "prep_shot": "Peeled cassava chunks with woody centers removed, next to onion, garlic, curry powder, coconut milk, and lime.",
+          "mid_cook": "Cassava fork-tender and a golden onion-garlic curry base starting to simmer with coconut milk.",
+          "finished": "Cassava chunks coated in a light coconut curry sauce with wilted greens and a squeeze of lime."
+        },
+        "safety_note": "Cassava must be peeled and cooked thoroughly; do not eat raw."
+      }
+    },
     {
       "id": "quick-chard-saute",
       "title": "Sautéed Swiss Chard with Garlic and Lemon",
