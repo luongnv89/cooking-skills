@@ -4,13 +4,30 @@ description: "Generate exactly 3 quick healthy recipes with quantities, nutritio
 license: MIT
 effort: medium
 metadata:
-  version: 1.3.0
+  version: 1.4.0
   author: "Luong NGUYEN <luongnv89@gmail.com>"
 ---
 
 # Quick Healthy Recipes
 
 Turn food photos, ingredient lists, or a short cooking desire into **exactly 3** practical recipes that are simple, fast, visual, nutrition-aware, Telegram-readable, and healthy enough for a normal weeknight.
+
+## Prerequisites
+
+This skill requires the **lightpanda** CLI for fetching web content (recipe pages, ingredient info). If not installed, install it via:
+
+```bash
+# macOS (Homebrew)
+brew install lightpanda/tap/lightpanda
+
+# Linux / other
+curl -fsSL https://get.lightpanda.io | sh
+
+# Verify
+lightpanda --version
+```
+
+The skill uses `lightpanda fetch --dump markdown <url>` to fetch recipe pages and ingredient sources.
 
 ## When to use
 
@@ -67,7 +84,13 @@ Do not give medical nutrition advice. Nutrition numbers are rough cooking estima
 
 ### 3. Build 3 recipe options
 
-If the user explicitly asks to search, find the best recipe, or use recipe results, search the web before finalizing. Prefer reputable recipe pages, official food publications, or open recipe datasets. Use the sources to inform technique and quantities, but adapt the final recipes to the user's ingredients and the quick/healthy constraints.
+If the user explicitly asks to search, find the best recipe, or use recipe results, search the web before finalizing. Use **lightpanda** to fetch recipe pages:
+
+```bash
+lightpanda fetch --dump markdown https://example-recipe-page
+```
+
+Prefer reputable recipe pages, official food publications, or open recipe datasets. Use the sources to inform technique and quantities, but adapt the final recipes to the user's ingredients and the quick/healthy constraints.
 
 Create exactly 3 distinct options. Each option should vary by cooking style or meal format, for example:
 
@@ -115,7 +138,7 @@ Give step-by-step visual cues so the user knows what success looks like:
 - If tool limits make 9 images impractical, prioritize the Pick tonight recipe with 3 generated/attached images, then include text-only 3-shot guides for the other two recipes.
 - If image tools are not available, include the compact 3-shot photo guide for every recipe.
 
-When web search finds recipe pages with useful images:
+When web search or lightpanda fetch finds recipe pages with useful images:
 
 - Download or attach images only when they are clearly permitted to reuse, user-owned, public-domain/open-license, or explicitly provided by the user. Preserve source URLs and attribution when used.
 - If reuse rights are unclear, do **not** download copyrighted recipe photos. Link/cite the source instead and generate original demonstration images or provide shot descriptions.
